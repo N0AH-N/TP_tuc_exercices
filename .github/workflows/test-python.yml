@@ -7,9 +7,9 @@ on:
       - main
 
 jobs:
-
   tests:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
         name: Checkout my project
@@ -20,5 +20,9 @@ jobs:
       - name: Install requirements
         run: |
           python -m pip install -r requirements.txt
-  
-
+      - name: Pytest
+        run: |
+          python -m pytest
+      - name: Pylint
+        run: |
+          python -m pylint application/
